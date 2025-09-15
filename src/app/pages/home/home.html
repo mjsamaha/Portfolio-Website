@@ -1,0 +1,189 @@
+<section class="bg-animated-dark flex flex-col items-center justify-center min-h-[90vh] pt-24 px-4">
+    <div id="hero-text" class="text-center space-y-6 max-w-2xl">
+    <p class="text-2xl md:text-3xl font-semibold text-blue-200">Hello, I'm</p>
+    <h1 class="text-5xl md:text-6xl font-semibold text-blue mb-2">Matthew Samaha</h1>
+    <h2 class="text-2xl md:text-3xl font-semibold text-blue-200 mb-4">I'm a passionate developer who creates beautiful, functional digital experiences.</h2>
+    <p class="text-lg text-gray-300 mb-6">Welcome to my creative space where innovation meets elegance.<br><br>Inspired by the grace and precision found in nature, I bring that same attention to detail to every project I craft.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+      <a href="#projects" class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow transition">View My Work</a>
+      <a href="#contact" class="px-6 py-3 rounded-lg border border-blue-400 text-blue-300 hover:bg-blue-900 font-semibold shadow transition">Get In Touch</a>
+    </div>
+    <div class="flex justify-center gap-6 mt-4">
+      <a href="#" aria-label="GitHub" class="text-gray-300 hover:text-white text-2xl transition">
+        <svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.339-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.338 4.695-4.566 4.944.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.749 0 .267.18.577.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2z"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn" class="text-gray-300 hover:text-white text-2xl transition">
+        <svg fill="currentColor" viewBox="0 0 24 24" class="w-7 h-7"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="py-20 bg-dark-blue text-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-2 text-center">My Work</h2>
+    <p class="text-lg text-gray-300 mb-10 text-center">
+      A selection of projects that showcase my skills and interests
+    </p>
+    <!-- Toggle Buttons -->
+    <div class="flex justify-center mb-10">
+      <div class="bg-gray-800/60 backdrop-blur-sm rounded-full p-1.5 border border-gray-700/50 shadow-lg">
+        <button
+          class="filter-button px-8 py-3 font-semibold rounded-full transition-all duration-400 ease-out relative overflow-hidden"
+          [ngClass]="{
+            'bg-blue-600 text-white shadow-xl scale-105 z-10': selectedTab === 'featured',
+            'text-gray-400 hover:text-white z-0': selectedTab !== 'featured'
+          }"
+          (click)="switchTab('featured')"
+        >
+          <span class="relative z-10">Featured Projects</span>
+        </button>
+        <button
+          class="filter-button px-8 py-3 font-semibold rounded-full transition-all duration-400 ease-out relative overflow-hidden -ml-2"
+          [ngClass]="{
+            'bg-blue-600 text-white shadow-xl scale-105 z-10': selectedTab === 'current',
+            'text-gray-400 hover:text-white z-0': selectedTab !== 'current'
+          }"
+          (click)="switchTab('current')"
+        >
+          <span class="relative z-10">Currently Working On</span>
+        </button>
+      </div>
+    </div>
+    <!-- Projects Content -->
+    <div *ngIf="selectedTab === 'featured'" 
+    @fadeInOut
+    class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 transition-all duration-500"
+    >      <!-- Project Card 1 -->
+    <div class="group bg-gray-800/90 backdrop-blur-sm rounded-2xl p-7 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+      <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-200">
+        <a href="#" class="hover:underline">E-commerce Platform</a>
+      </h3>
+      <p class="text-gray-400 mb-5 text-sm leading-relaxed">
+        Full-stack e-commerce solution with advanced inventory management, payment processing, and real-time analytics dashboard.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">Spring Boot</span>
+        <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">React</span>
+        <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">PostgreSQL</span>
+      </div>
+    </div>
+      <!-- Project Card 2 -->
+      <div class="group bg-gray-800/90 backdrop-blur-sm rounded-2xl p-7 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-200">
+          <a href="#" class="hover:underline">E-commerce Platform</a>
+        </h3>
+        <p class="text-gray-400 mb-5 text-sm leading-relaxed">
+          Full-stack e-commerce solution with advanced inventory management, payment processing, and real-time analytics dashboard.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">Spring Boot</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">React</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">PostgreSQL</span>
+        </div>
+      </div>
+      <!-- Project Card 3 -->
+      <div class="group bg-gray-800/90 backdrop-blur-sm rounded-2xl p-7 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-200">
+          <a href="#" class="hover:underline">E-commerce Platform</a>
+        </h3>
+        <p class="text-gray-400 mb-5 text-sm leading-relaxed">
+          Full-stack e-commerce solution with advanced inventory management, payment processing, and real-time analytics dashboard.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">Spring Boot</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">React</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">PostgreSQL</span>
+        </div>
+      </div>
+      <!-- Project Card 4 -->
+      <div class="group bg-gray-800/90 backdrop-blur-sm rounded-2xl p-7 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-200">
+          <a href="#" class="hover:underline">E-commerce Platform</a>
+        </h3>
+        <p class="text-gray-400 mb-5 text-sm leading-relaxed">
+          Full-stack e-commerce solution with advanced inventory management, payment processing, and real-time analytics dashboard.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">Spring Boot</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">React</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">PostgreSQL</span>
+        </div>
+      </div>
+      <!-- Project Card 5 -->
+      <div class="group bg-gray-800/90 backdrop-blur-sm rounded-2xl p-7 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-200">
+          <a href="#" class="hover:underline">E-commerce Platform</a>
+        </h3>
+        <p class="text-gray-400 mb-5 text-sm leading-relaxed">
+          Full-stack e-commerce solution with advanced inventory management, payment processing, and real-time analytics dashboard.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">Spring Boot</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">React</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">PostgreSQL</span>
+        </div>
+      </div>
+      <!-- Project Card 6 -->
+      <div class="group bg-gray-800/90 backdrop-blur-sm rounded-2xl p-7 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-200">
+          <a href="#" class="hover:underline">E-commerce Platform</a>
+        </h3>
+        <p class="text-gray-400 mb-5 text-sm leading-relaxed">
+          Full-stack e-commerce solution with advanced inventory management, payment processing, and real-time analytics dashboard.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">Spring Boot</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">React</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedTab === 'current'" 
+    @fadeInOut
+    class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 transition-all duration-500"
+    >      <!-- Current Project Card 1 -->
+    <div class="group bg-gray-800/90 backdrop-blur-sm rounded-2xl p-7 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+      <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-200">
+        <a href="#" class="hover:underline">E-commerce Platform</a>
+      </h3>
+      <p class="text-gray-400 mb-5 text-sm leading-relaxed">
+        Full-stack e-commerce solution with advanced inventory management, payment processing, and real-time analytics dashboard.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">Spring Boot</span>
+        <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">React</span>
+        <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">PostgreSQL</span>
+      </div>
+    </div>
+      <!-- Current Project Card 2 -->
+      <div class="group bg-gray-800/90 backdrop-blur-sm rounded-2xl p-7 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-200">
+          <a href="#" class="hover:underline">E-commerce Platform</a>
+        </h3>
+        <p class="text-gray-400 mb-5 text-sm leading-relaxed">
+          Full-stack e-commerce solution with advanced inventory management, payment processing, and real-time analytics dashboard.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">Spring Boot</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">React</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">PostgreSQL</span>
+        </div>
+      </div>
+      <!-- Current Project Card 3 -->
+      <div class="group bg-gray-800/90 backdrop-blur-sm rounded-2xl p-7 border border-gray-700/30 hover:border-gray-600/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20">
+        <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-200">
+          <a href="#" class="hover:underline">E-commerce Platform</a>
+        </h3>
+        <p class="text-gray-400 mb-5 text-sm leading-relaxed">
+          Full-stack e-commerce solution with advanced inventory management, payment processing, and real-time analytics dashboard.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">Spring Boot</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">React</span>
+          <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
