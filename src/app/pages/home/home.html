@@ -1,12 +1,19 @@
-<section class="bg-animated-dark flex flex-col items-center justify-center min-h-[90vh] pt-24 px-4">
-    <div id="hero-text" class="text-center space-y-6 max-w-2xl">
+<section class="bg-animated-dark flex flex-col items-center justify-center min-h-[90vh] pt-24 px-4 relative overflow-hidden">
+    <!-- Translucent Bird Background -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="bird-background">
+        <img src="/bluejay.jpg" alt="Blue Jay" class="bird-image" />
+      </div>
+    </div>
+    
+    <div id="hero-text" class="text-center space-y-6 max-w-2xl relative z-10">
     <p class="text-2xl md:text-3xl font-semibold text-blue-200">Hello, I'm</p>
     <h1 class="text-5xl md:text-6xl font-semibold text-blue mb-2">Matthew Samaha</h1>
     <h2 class="text-2xl md:text-3xl font-semibold text-blue-200 mb-4">I'm a passionate developer who creates beautiful, functional digital experiences.</h2>
-    <p class="text-lg text-gray-300 mb-6">Welcome to my creative space where innovation meets elegance.<br><br>Inspired by the grace and precision found in nature, I bring that same attention to detail to every project I craft.</p>
+    <p class="text-lg text-gray-300 mb-6">Welcome to my creative space where innovation meets elegance.<br><br>Inspired by my love for bird photography, I bring that same attention to detail to every project I craft.</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-      <a href="#projects" class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow transition">View My Work</a>
-      <a href="#contact" class="px-6 py-3 rounded-lg border border-blue-400 text-blue-300 hover:bg-blue-900 font-semibold shadow transition">Get In Touch</a>
+      <!-- <a href="#projects" class="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow transition">View My Work</a> -->
+      <!-- <a href="#contact" class="px-6 py-3 rounded-lg border border-blue-400 text-blue-300 hover:bg-blue-900 font-semibold shadow transition">Get In Touch</a> -->
     </div>
     <div class="flex justify-center gap-6 mt-4">
       <a href="#" aria-label="GitHub" class="text-gray-300 hover:text-white text-2xl transition">
@@ -101,6 +108,80 @@ A web prototype for cadet inventory with role-based access and AI-powered query 
     <span class="bg-blue-500/20 text-blue-300 text-xs font-medium px-3 py-1.5 rounded-lg border border-blue-500/20">AI Query Parsing</span>
   </div>
 </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-gray-900 text-white relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4">About Me</h2>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+        Passionate about creating innovative solutions with modern technologies and clean code practices.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Technologies & Frameworks -->
+      <div class="about-card">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-semibold mb-2 text-blue-400">Technologies & Frameworks</h3>
+          <p class="text-gray-400">The tools I build applications with</p>
+        </div>
+        
+        <div class="carousel-container">
+          <div class="carousel-track" [style.transform]="'translateX(' + frameworksOffset + '%)'">
+            <div *ngFor="let framework of frameworks; let i = index" 
+                 class="carousel-item"
+                 [class.active]="currentFrameworkIndex === i">
+              <div class="tech-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8" [innerHTML]="framework.icon"></svg>
+              </div>
+              <span class="tech-name">{{ framework.name }}</span>
+            </div>
+          </div>
+          
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators">
+            <button *ngFor="let framework of frameworks; let i = index"
+                    class="indicator"
+                    [class.active]="currentFrameworkIndex === i"
+                    (click)="goToFramework(i)">
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="about-card">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-semibold mb-2 text-blue-400">Languages</h3>
+          <p class="text-gray-400">Programming languages I work with</p>
+        </div>
+        
+        <div class="carousel-container">
+          <div class="carousel-track" [style.transform]="'translateX(' + languagesOffset + '%)'">
+            <div *ngFor="let language of languages; let i = index" 
+                 class="carousel-item"
+                 [class.active]="currentLanguageIndex === i">
+              <div class="tech-icon">
+                <svg fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8" [innerHTML]="language.icon"></svg>
+              </div>
+              <span class="tech-name">{{ language.name }}</span>
+            </div>
+          </div>
+          
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators">
+            <button *ngFor="let language of languages; let i = index"
+                    class="indicator"
+                    [class.active]="currentLanguageIndex === i"
+                    (click)="goToLanguage(i)">
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
