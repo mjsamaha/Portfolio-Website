@@ -3,6 +3,8 @@ import { gsap } from 'gsap';
 import { NgIf, NgClass, NgFor } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
 
+// TODO: Prompt: I still can't see the icons. Let's completely redesign the technologies and languages carousel and create something more better that is able to present the icons to the technology. Can we do this please? Again, a modern clean UI feel with Tailwind.., 
+
 @Component({
   selector: 'app-home',
   imports: [NgIf, NgClass, NgFor],
