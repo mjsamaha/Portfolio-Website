@@ -5,7 +5,7 @@
         <img src="/bluejay.jpg" alt="Blue Jay" class="bird-image" />
       </div>
     </div>
-    
+
     <div id="hero-text" class="text-center space-y-6 max-w-2xl relative z-10">
     <p class="text-2xl md:text-3xl font-semibold text-blue-200">Hello, I'm</p>
     <h1 class="text-5xl md:text-6xl font-semibold text-blue mb-2">Matthew Samaha</h1>
@@ -124,61 +124,37 @@ A web prototype for cadet inventory with role-based access and AI-powered query 
 
     <div class="grid md:grid-cols-2 gap-12">
       <!-- Technologies & Frameworks -->
-      <div class="about-card">
+      <div class="about-card bg-gray-800/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30">
         <div class="text-center mb-8">
           <h3 class="text-2xl font-semibold mb-2 text-blue-400">Technologies & Frameworks</h3>
           <p class="text-gray-400">The tools I build applications with</p>
         </div>
-        
-        <div class="carousel-container">
-          <div class="carousel-track" [style.transform]="'translateX(' + frameworksOffset + '%)'">
-            <div *ngFor="let framework of frameworks; let i = index" 
-                 class="carousel-item"
-                 [class.active]="currentFrameworkIndex === i">
-              <div class="tech-icon">
-                <svg fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8" [innerHTML]="framework.icon"></svg>
-              </div>
-              <span class="tech-name">{{ framework.name }}</span>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+          <div *ngFor="let framework of frameworks"
+               class="flex flex-col items-center p-4 rounded-xl bg-gray-900/50 border border-gray-700/30 hover:border-blue-500/30 transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg">
+            <div class="w-16 h-16 flex items-center justify-center bg-gray-800/80 rounded-lg mb-3 group-hover:bg-gray-800">
+              <i [class]="framework.icon" class="text-4xl transition-all duration-300" [style.color]="framework.color"></i>
             </div>
-          </div>
-          
-          <!-- Carousel Indicators -->
-          <div class="carousel-indicators">
-            <button *ngFor="let framework of frameworks; let i = index"
-                    class="indicator"
-                    [class.active]="currentFrameworkIndex === i"
-                    (click)="goToFramework(i)">
-            </button>
+            <span class="text-gray-300 text-sm font-medium group-hover:text-white transition-colors duration-300">{{ framework.name }}</span>
           </div>
         </div>
       </div>
 
       <!-- Languages -->
-      <div class="about-card">
+      <div class="about-card bg-gray-800/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30">
         <div class="text-center mb-8">
           <h3 class="text-2xl font-semibold mb-2 text-blue-400">Languages</h3>
           <p class="text-gray-400">Programming languages I work with</p>
         </div>
-        
-        <div class="carousel-container">
-          <div class="carousel-track" [style.transform]="'translateX(' + languagesOffset + '%)'">
-            <div *ngFor="let language of languages; let i = index" 
-                 class="carousel-item"
-                 [class.active]="currentLanguageIndex === i">
-              <div class="tech-icon">
-                <svg fill="currentColor" viewBox="0 0 24 24" class="w-8 h-8" [innerHTML]="language.icon"></svg>
-              </div>
-              <span class="tech-name">{{ language.name }}</span>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+          <div *ngFor="let language of languages"
+               class="flex flex-col items-center p-4 rounded-xl bg-gray-900/50 border border-gray-700/30 hover:border-blue-500/30 transition-all duration-300 group hover:-translate-y-1 hover:shadow-lg">
+            <div class="w-16 h-16 flex items-center justify-center bg-gray-800/80 rounded-lg mb-3 group-hover:bg-gray-800">
+              <i [class]="language.icon" class="text-4xl transition-all duration-300" [style.color]="language.color"></i>
             </div>
-          </div>
-          
-          <!-- Carousel Indicators -->
-          <div class="carousel-indicators">
-            <button *ngFor="let language of languages; let i = index"
-                    class="indicator"
-                    [class.active]="currentLanguageIndex === i"
-                    (click)="goToLanguage(i)">
-            </button>
+            <span class="text-gray-300 text-sm font-medium group-hover:text-white transition-colors duration-300">{{ language.name }}</span>
           </div>
         </div>
       </div>
